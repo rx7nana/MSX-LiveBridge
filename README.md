@@ -1,5 +1,8 @@
 # MSX LiveBridge
 
+> このリポジトリはVer1.0.4の**ソース公開用**です。Windows完成版は[GitHub Releases](https://github.com/rx7nana/MSX-LiveBridge/releases)から取得してください。以下の一般ユーザー向け説明でいう `_internal`、内包MGSDRV、`licenses/` 等はWindows配布ZIPの構成を指し、本ソースツリーには含みません。開発手順は末尾と [docs/BUILD.md](docs/BUILD.md) を参照してください。
+
+
 **MSX LiveBridge** は、Webブラウザ上の **msxplay** で作成・再生したMMLを、VSIFを介してMSX実機の音源で演奏するためのWindowsアプリケーションです。
 
 msxplayで通常どおりMMLを編集し、Compile / PLAYすることで、MSX実機のPSG・OPLL・SCC-Iから演奏できます。
@@ -239,3 +242,25 @@ Windowsアプリは`127.0.0.1:27183`のみで待ち受けます。拡張はmsxpl
 ## ライセンス
 
 MSX LiveBridge独自部分はMIT License（Copyright (c) 2026 NANA）です。全文は`LICENSE.txt`を参照してください。第三者コンポーネントはMITへ変更せず、それぞれのライセンス・許諾条件に従います。
+
+
+## 開発者向け：公開ソース
+
+現行Ver1.0.4のChrome Web Store ID対応版を基準としています。WindowsはストアID `cfkcbmejlakciepflheboofnphdkoghf` と開発版ID `fcebnajmcgjhmkbgefjgaaadnjpdamnc` を許可します。元の配布候補の実機確認は完了していますが、この許可ID修正版の追加実機スモークと、ストアから実際に導入した拡張との確認は別途必要です。ストアIDは割当て済みで、審査送信・一般公開は未実施です。上記一般ユーザー向け文章の「掲載先未確定」は、この公開状況を指します。
+
+| 場所 | 内容 |
+|---|---|
+| src/ | UI、Bridge、再生状態管理、MGS/VGM処理、VSIFエンコード、FTDI検出、認証、終端フェード |
+| native/ | Native Sender、FTDI呼出し、Connect、音源プロファイル、アイコン・バージョンリソース |
+| extension/ | ストア提出版のmanifestと同梱JavaScript・LBアイコン。keyなし |
+| config/manifest.unpacked.json | 開発版固定IDの公開鍵を含むmanifest |
+| assets/ | 正式LB原本、各サイズPNG、マルチサイズICO |
+| tests/ | 自動テスト、模擬FTDI、VSIFデコード補助。検証曲・ログは非同梱 |
+| tools/ | 拡張のstore/unpacked別生成、依存変換器のハッシュ照合 |
+| docs/BUILD.md | 開発環境、ビルド、依存物の取得、テストの手順 |
+
+Windowsでの開発にはPython、MSVC/Windows SDK、PyInstaller、テストにはPillow/Node.jsを使います。kss2vgm公式0.1.4は条件を確認して別途用意してください。libkss、kss2vgm、MGSDRV由来データ、FTDI DLL、Python/Tcl/Tkランタイムはソースリポジトリへ含めません。一般ユーザーにはこれらの開発ツールは不要です。
+
+実装のプライバシー方針は [PRIVACY.md](PRIVACY.md) を参照してください。楽曲・操作・認証・限定したURL確認を扱いますが、拡張から開発者・外部サーバー・第三者へ送りません。リモートコードを使用しません。
+
+この公開整理で動作コードは変更していません。公開用ツリーでは、ビルド・テストの個人絶対パスの除去、非公開回帰データの外部指定、状態ファイル更新中の一時的な読取失敗に対応するテスト補助の調整を行っています。完成ZIP・実行ログ・認証情報・第三者バイナリはGitへ登録せず、`.gitignore` を維持してください。

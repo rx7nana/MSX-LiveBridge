@@ -1,0 +1,61 @@
+# Python / local development environment
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+build-tools/
+.pytest_cache/
+.mypy_cache/
+# Build output, runtimes, native binaries
+build/
+dist/
+release/
+_internal/
+*.exe
+*.dll
+*.pyd
+*.obj
+*.o
+*.pdb
+*.ilk
+*.lib
+*.exp
+*.res
+*.spec
+*.msi
+*.zip
+*.7z
+# IDE files
+.vs/
+.vscode/
+*.suo
+*.user
+*.VC.db
+# Private test material and captured playback
+tests/fixtures/
+tests/mock-bin/
+*.mgs
+*.vgm
+*.vgz
+*.kss
+*.pcap
+*.pcapng
+*.jsonl
+# Local state and credentials (do not ignore source identity.py or manifests)
+runs/
+session.json
+settings.json
+native-host.json
+.env
+.env.*
+*credentials*.json
+*token*.json
+*.pem
+*.key
+*.pfx
+*.p12
+*.log
+*.tmp
+*.bak
+Thumbs.db
+Desktop.ini

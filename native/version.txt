@@ -1,0 +1,6 @@
+VSVersionInfo(
+ ffi=FixedFileInfo(filevers=(1,0,4,0),prodvers=(1,0,4,0),mask=0x3f,flags=0,OS=0x40004,fileType=1,subtype=0,date=(0,0)),
+ kids=[StringFileInfo([StringTable('040904B0',[
+ StringStruct('FileDescription','MSX LiveBridge'),StringStruct('ProductName','MSX LiveBridge'),
+ StringStruct('FileVersion','1.0.4'),StringStruct('ProductVersion','1.0.4'),
+ StringStruct('OriginalFilename','MSXLiveBridge.exe')])]),VarFileInfo([VarStruct('Translation',[1033,1200])])])

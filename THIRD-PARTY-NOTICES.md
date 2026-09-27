@@ -1,5 +1,17 @@
 # MSX LiveBridge 1.0.4 — Third-party notices
 
+## Scope: source repository versus Windows release
+
+This source repository contains original MSX LiveBridge Python/C++/JavaScript code, build and test helpers, documentation and LB artwork. It does **not** contain kss2vgm/libkss source or binaries, MGSDRV or other driver payloads, FTDI binaries, Python/Tcl/Tk runtimes, Microsoft runtime binaries, or test music. The extension subdirectory likewise contains no such components.
+
+The original notices below describe **dependencies included in the separately distributed Windows release**, or software the user obtains separately. Every `_internal/` and `licenses/` path below refers to that Windows ZIP, not to this repository. License texts for bundled dependencies must accompany a redistributed Windows package; their absence from this source tree is not permission to omit them from a binary distribution.
+
+The project MIT License applies only to the original components. The existing permission for embedded MGSDRV distribution does not grant blanket permission to republish driver source/data in this repository. The official kss2vgm 0.1.4 binary remains subject to its non-commercial/no-paid-distribution conditions even though the original project code is MIT. Dependency acquisition and pinned hashes are in [docs/BUILD.md](docs/BUILD.md).
+
+Build/test tools (not included): Python, Microsoft Visual Studio Build Tools/Windows SDK, PyInstaller and Pillow; Node.js runs the JavaScript tests. Install these from their own distributors under their respective terms. No third-party npm or Python package source is vendored here.
+
+## Notices for the Windows release dependencies (retained)
+
 ## MGSDRV
 
 **MGSDRV (C) Ain./Gigamix**

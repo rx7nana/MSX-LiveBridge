@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "MSX LiveBridge",
+  "version": "1.0.4",
+  "description": "msxplayとMSX実機をつなぎます。MSX LiveBridge起動中に自動連携します。",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxA84IOyAF31v4cZNuYvrdnC5zEJHMHAvDS5O1P0MHmPpGgicNhb+nWAhBAzXIb23POsKzHs3eV0UwpnK7Bxij9wIQ/cjfS8/3+vMwLWylUZcuiwhNDwbBFzCTd/9ePsgvK2ju3rvDoi2hZcJdN8YE2aLUBUVsYescQGg+nLFOes4FnE+V9NZIcY3cX0K7F1dQpbsnkhN2DpZTcZNEOec4veEdeP+ygo8i49/PEf28osTbueVbZ/yWirdiP5uBcjbxC/Rf36oL24gqH0jeLapQyN4n45Zz7dam6OVPaMusmQmGW9b93RxS2tGu+jX9q/cb3P0RfJPDLrIZwj0fxd9sQIDAQAB",
+  "permissions": [
+    "nativeMessaging",
+    "storage"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:27183/*"
+  ],
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://msxplay.com/*"
+      ],
+      "js": [
+        "main-hook.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://msxplay.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  }
+}
