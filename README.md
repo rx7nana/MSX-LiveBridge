@@ -5,7 +5,7 @@
 
 **MSX LiveBridge** は、Webブラウザ上の **msxplay** で作成・再生したMMLを、VSIFを介してMSX実機の音源で演奏するためのWindowsアプリケーションです。
 
-msxplayで通常どおりMMLを編集し、Compile / PLAYすることで、MSX実機のPSG・OPLL・SCC-Iから演奏できます。
+msxplayで通常どおりMMLを編集し、Compile / PLAYすることで、MSX実機のPSG・OPLL・SCCから演奏できます。
 
 msxplay自体を改造する必要はありません。
 
@@ -20,9 +20,9 @@ Google ChromeとMicrosoft Edgeでは、同じChrome Web Store版のChromium拡�
 
 - msxplayのCompile / PLAYに連動したMSX実機演奏
 - PSG対応
-- 内蔵OPLL対応
-- SCC-I対応
-- SCC-I波形RAM書き込み対応
+- OPLL対応
+- SCC対応
+- SCC波形RAM書き込み対応
 - PAUSE / RESUME連動
 - 前方・後方シーク対応
 - 連続シーク対応
@@ -55,17 +55,17 @@ MSX LiveBridgeは、既存のVSIF受信環境を使用します。
 
 NGLOAD.COM、VGM_msx.rom等の第三者配布物については、MSX LiveBridgeとは別に適切な配布元・利用条件に従って用意してください。本アプリの同梱物としては案内していません。
 
-受信プログラムは使用するVSIFに対応した版を組み合わせてください。古い受信ROMでは通信形式が合わない場合があります。演奏する音源に応じて、内蔵OPLLやSCC-I等も必要です。
+受信プログラムは使用するVSIFに対応した版を組み合わせてください。古い受信ROMでは通信形式が合わない場合があります。演奏する音源に応じて、OPLLやSCC等も必要です。
 
 ## 対応音源
 
 現在確認済みの音源は以下です。
 
 - PSG
-- 内蔵OPLL
-- SCC-I
+- OPLL
+- SCC
 
-SCC-Iについては波形RAM書き込みにも対応しています。
+SCCについては波形RAM書き込みにも対応しています。
 
 ## FTDI設定
 
@@ -117,7 +117,7 @@ FTDI D2XXドライバーとMSX側の受信環境は、各配布元の案内に�
 
 ### Chromium拡張のインストール
 
-MSX LiveBridgeのChromium拡張は、Chrome Web Storeからインストールします。
+MSX LiveBridgeのChromium拡張は、[Chrome Web Store](https://chromewebstore.google.com/detail/msx-livebridge/cfkcbmejlakciepflheboofnphdkoghf)からインストールしてください。Google ChromeおよびMicrosoft Edgeで同じChrome Web Store版を利用できます。
 
 **Google Chrome**
 
@@ -215,7 +215,7 @@ FT232RプロファイルはVer1.0.4時点では実機確認未完了です。
 
 - ブラウザ音声と実機音声は完全な同時再生ではありません。
 - FT232RプロファイルはVer1.0.4時点で実機検証未完了です。
-- 現在の実機確認対象はPSG、内蔵OPLL、SCC-Iです。
+- 現在の実機確認対象はPSG、OPLL、SCCです。
 - MSX側には別途VSIF受信環境が必要です。
 - 現行拡張の対象は`https://msxplay.com/`です。別のサイトに設置したmsxplayへの対応は確認していません。
 - 自動選択はFTDI機器の検出です。MSX側の起動や配線、受信プログラムの確認は別途必要です。
@@ -262,7 +262,7 @@ MSX LiveBridge独自部分はMIT License（Copyright (c) 2026 NANA）です。�
 
 2026-10-01、Google Chromeにストアから実インストールしたVer1.0.4拡張のみを有効にした最終実機テストで、次のすべてが正常と確認されました。
 
-- Compile → PLAY、PSG / OPLL / SCC-I、SCC-I波形変化、正常テンポ
+- Compile → PLAY、PSG / OPLL / SCC、SCC波形変化、正常テンポ
 - PAUSE / RESUME、前方・後方・連続SEEK、PAUSE中SEEK、MML編集後の再Compile
 - 開始前ノイズなし、残音なし、二重再生なし
 - 終端フェード、終端後の完全無音、次回PLAY時の通常音量復帰
