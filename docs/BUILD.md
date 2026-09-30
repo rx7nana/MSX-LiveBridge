@@ -61,7 +61,7 @@ Windows側の許可IDは以下の2つです。keyなしの `extension/` を直�
 - Chrome Web Store: `cfkcbmejlakciepflheboofnphdkoghf`
 - 開発版: `fcebnajmcgjhmkbgefjgaaadnjpdamnc`
 
-Edge Add-ons固有IDは未確認です。ストア掲載・審査・一般公開の操作を、このビルド手順では行いません。
+正式配布ではGoogle ChromeとMicrosoft Edgeの両方で同じChrome Web Store版を使用します。Edge向け別ストアへの個別登録は現時点では行わず、別IDの取得も前提としません。ストア掲載・審査・一般公開の操作を、このビルド手順では行いません。
 
 ## 自動テスト
 
