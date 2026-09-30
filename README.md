@@ -13,8 +13,8 @@ msxplay自体を改造する必要はありません。
 
 **MSX LiveBridge Ver1.0.4**
 
-Ver1.0.4の配布候補です。MGSDRV由来データの現行バイナリへの内包配布は許諾済みです。公開前の配布版最終実機確認が残っています。本体独自部分はMIT License（Copyright (c) 2026 NANA）です。
-Chromium拡張のストア掲載先は未確定です。公開後の案内をご確認ください。
+Ver1.0.4は、Chrome Web Storeから実際にインストールした拡張を使用して最終実機テスト済みです。開発版拡張は使用せず、Chrome Web Store版のみを有効にした状態で確認しています。MGSDRV由来データの現行バイナリへの内包配布は許諾済みです。本体独自部分はMIT License（Copyright (c) 2026 NANA）です。
+Google ChromeとMicrosoft Edgeでは、同じChrome Web Store版のChromium拡張を使用します。
 
 ## 主な機能
 
@@ -105,7 +105,7 @@ baud rate、clock幅等を手動設定するためのプロファイルです。
 
 ## 導入方法
 
-Windows版はGitHub Releases、Chromium拡張はChrome Web Store / Edge Add-onsでの提供を予定しています。ストアURLは未確定です。
+Windows版は[GitHub Releases](https://github.com/rx7nana/MSX-LiveBridge/releases)から取得し、Chromium拡張はChrome Web Storeからインストールします。Microsoft Edgeでも同じChrome Web Store版を利用できます。
 
 1. `MSXLiveBridge-1.0.4-win-x64.zip`をすべて展開します。
 2. 展開したフォルダー全体を保存します。
@@ -115,7 +115,19 @@ Windows版はGitHub Releases、Chromium拡張はChrome Web Store / Edge Add-ons�
 
 FTDI D2XXドライバーとMSX側の受信環境は、各配布元の案内に従って別途準備してください。MGSDRV由来データは内部の変換EXEに内包されています。Windows利用者がMGSDRV.COMを追加する必要はありません。
 
-Chromium拡張はChrome Web Store / Edge Add-ons等からの提供を予定していますが、公開先はまだ確定していません。現時点ではストアから導入できるとは案内していません。
+### Chromium拡張のインストール
+
+MSX LiveBridgeのChromium拡張は、Chrome Web Storeからインストールします。
+
+**Google Chrome**
+
+Chrome Web StoreからMSX LiveBridgeをインストールしてください。インストールして有効にした後は、通常は拡張機能を操作する必要はありません。
+
+**Microsoft Edge**
+
+Microsoft Edgeでも、Chrome Web Storeから同じMSX LiveBridge拡張をインストールできます。必要に応じて、Edgeで「他のストアからの拡張機能を許可する」を有効にしてからインストールしてください。
+
+ChromeとEdgeで同じChrome Web Store版を使用します。Edge向けの別ストア版は現時点では提供しません。
 
 拡張を導入・有効化した後は、すでに開いているmsxplayのページを一度再読み込みしてください。Windowsアプリを起動すると、そのWindowsユーザーのブラウザとの連携を自動登録します。
 
@@ -246,7 +258,17 @@ MSX LiveBridge独自部分はMIT License（Copyright (c) 2026 NANA）です。�
 
 ## 開発者向け：公開ソース
 
-現行Ver1.0.4のChrome Web Store ID対応版を基準としています。WindowsはストアID `cfkcbmejlakciepflheboofnphdkoghf` と開発版ID `fcebnajmcgjhmkbgefjgaaadnjpdamnc` を許可します。元の配布候補の実機確認は完了していますが、この許可ID修正版の追加実機スモークと、ストアから実際に導入した拡張との確認は別途必要です。ストアIDは割当て済みで、審査送信・一般公開は未実施です。上記一般ユーザー向け文章の「掲載先未確定」は、この公開状況を指します。
+現行Ver1.0.4のChrome Web Store ID対応版を基準としています。WindowsはストアID `cfkcbmejlakciepflheboofnphdkoghf` と開発版ID `fcebnajmcgjhmkbgefjgaaadnjpdamnc` を許可します。正式配布はChrome / Edgeとも同じChrome Web Store版です。
+
+2026-10-01、Google Chromeにストアから実インストールしたVer1.0.4拡張のみを有効にした最終実機テストで、次のすべてが正常と確認されました。
+
+- Compile → PLAY、PSG / OPLL / SCC-I、SCC-I波形変化、正常テンポ
+- PAUSE / RESUME、前方・後方・連続SEEK、PAUSE中SEEK、MML編集後の再Compile
+- 開始前ノイズなし、残音なし、二重再生なし
+- 終端フェード、終端後の完全無音、次回PLAY時の通常音量復帰
+- 再生中のWindowsアプリ終了による無音化、Windowsアプリ再起動後のVSIF再検出
+
+この結果はGoogle Chromeでの確認です。Microsoft Edgeで別途最終実機テストを完了したことを示すものではありません。
 
 | 場所 | 内容 |
 |---|---|
